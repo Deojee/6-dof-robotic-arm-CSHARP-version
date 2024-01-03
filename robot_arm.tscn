@@ -1,0 +1,262 @@
+[gd_scene load_steps=29 format=3 uid="uid://46gflptn4tv3"]
+
+[ext_resource type="Script" path="res://robotArm.gd" id="1_rlr3u"]
+[ext_resource type="Script" path="res://serialCommunicator.cs" id="2_wesc8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vesne"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.160784)
+
+[sub_resource type="BoxMesh" id="BoxMesh_370m4"]
+material = SubResource("StandardMaterial3D_vesne")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxb6o"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hw50b"]
+material = SubResource("StandardMaterial3D_mxb6o")
+size = Vector3(0.02, 0.02, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okb4q"]
+albedo_color = Color(0.239216, 1, 0.847059, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bcxff"]
+material = SubResource("StandardMaterial3D_okb4q")
+size = Vector3(0.02, 0.02, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fc72m"]
+albedo_color = Color(0.239216, 0.0117647, 0.847059, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6stvd"]
+material = SubResource("StandardMaterial3D_fc72m")
+size = Vector3(0.02, 0.02, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcvl1"]
+albedo_color = Color(1, 0.0745098, 0.0117647, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5ajl1"]
+material = SubResource("StandardMaterial3D_fcvl1")
+size = Vector3(0.05, 0.3, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u6x5l"]
+size = Vector3(0.025, 0.1, 0.025)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvmm3"]
+albedo_color = Color(0.784314, 0.286275, 0.835294, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_haekm"]
+material = SubResource("StandardMaterial3D_uvmm3")
+size = Vector3(0.1, 0.254, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ns2b"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_88mg2"]
+material = SubResource("StandardMaterial3D_7ns2b")
+size = Vector3(0.02, 0.02, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6mus"]
+albedo_color = Color(0.262745, 0.623529, 0.4, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4o2w8"]
+material = SubResource("StandardMaterial3D_r6mus")
+size = Vector3(0.11, 0.102, 0.11)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vpu3m"]
+albedo_color = Color(0.792157, 0.654902, 0.141176, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wrh8p"]
+material = SubResource("StandardMaterial3D_vpu3m")
+size = Vector3(0.08, 0.102, 0.08)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itwp6"]
+albedo_color = Color(0.156863, 0.756863, 0.784314, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6clp3"]
+material = SubResource("StandardMaterial3D_itwp6")
+size = Vector3(0.05, 0.055, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_awmhx"]
+size = Vector3(0.025, 0.15, 0.025)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tymwx"]
+albedo_color = Color(0.239216, 0, 0.964706, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4dmjp"]
+material = SubResource("StandardMaterial3D_tymwx")
+size = Vector3(0.02, 0.02, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r72d2"]
+albedo_color = Color(0.713726, 0.588235, 0.968627, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wfa5e"]
+material = SubResource("StandardMaterial3D_r72d2")
+size = Vector3(0.05, 0.04, 0.05)
+
+[node name="robotArm" type="Node3D"]
+script = ExtResource("1_rlr3u")
+robotYaw = 140.0
+shoulderAngle = 48.0
+elbowAngle = 64.0
+elbowTwistAngle = 108.0
+wristAngle = 64.0
+wristTwistAngle = 60.0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="baseBlock" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_370m4")
+metadata/_edit_group_ = true
+
+[node name="debugCube2" type="MeshInstance3D" parent="baseBlock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.53, 2.08165e-12)
+visible = false
+mesh = SubResource("BoxMesh_hw50b")
+skeleton = NodePath("../bottomPivot")
+
+[node name="debugCube3" type="MeshInstance3D" parent="baseBlock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.53, 2.08165e-12)
+visible = false
+mesh = SubResource("BoxMesh_bcxff")
+skeleton = NodePath("../bottomPivot")
+
+[node name="debugCube4" type="MeshInstance3D" parent="baseBlock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.705, 2474.35, -13.3636)
+visible = false
+mesh = SubResource("BoxMesh_6stvd")
+skeleton = NodePath("../bottomPivot")
+
+[node name="bottomPivot" type="Marker3D" parent="baseBlock"]
+transform = Transform3D(-0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, -0.766044, 2.08165e-12, 0.5, 2.08165e-12)
+
+[node name="baseShoulder" type="MeshInstance3D" parent="baseBlock/bottomPivot"]
+mesh = SubResource("BoxMesh_5ajl1")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="baseBlock/bottomPivot/baseShoulder"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.05, -0.05)
+mesh = SubResource("BoxMesh_u6x5l")
+
+[node name="shoulder" type="Marker3D" parent="baseBlock/bottomPivot/baseShoulder"]
+transform = Transform3D(1, 0, 0, 0, 0.669131, -0.743145, 0, 0.743145, 0.669131, 2.08165e-12, 0.108, 2.08165e-12)
+metadata/_edit_group_ = true
+
+[node name="shoulderSegment" type="MeshInstance3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder"]
+transform = Transform3D(1, -6.66134e-16, 0, -2.22045e-16, 1, 0, 0, 0, 1, 2.08165e-12, 0.127, 2.08165e-12)
+mesh = SubResource("BoxMesh_haekm")
+skeleton = NodePath("../../../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder/shoulderSegment"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.05, -0.05)
+mesh = SubResource("BoxMesh_u6x5l")
+
+[node name="elbow" type="Marker3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder"]
+transform = Transform3D(1, 0, 0, 0, 0.438371, -0.898794, 0, 0.898794, 0.438371, 2.08165e-12, 0.254, 2.08165e-12)
+metadata/_edit_group_ = true
+
+[node name="debugCube" type="MeshInstance3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder/elbow"]
+transform = Transform3D(1, 6.56488e-09, 2.25091e-08, -7.36514e-09, 1, 4.1967e-08, 1.1436e-09, -1.11161e-08, 1, -1.06285e-10, 0.03, 0)
+visible = false
+mesh = SubResource("BoxMesh_88mg2")
+
+[node name="elbowSegmentMesh" type="MeshInstance3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder/elbow"]
+transform = Transform3D(1, -6.66134e-16, 0, -2.22045e-16, 1, 0, 0, 0, 1, 0, 0.051, 0)
+mesh = SubResource("BoxMesh_4o2w8")
+skeleton = NodePath("../../../../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowSegmentMesh"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 0.03, -0.05)
+mesh = SubResource("BoxMesh_u6x5l")
+
+[node name="elbowTwist" type="Marker3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder/elbow"]
+transform = Transform3D(-0.309017, 0, 0.951057, 0, 1, 0, -0.951057, 0, -0.309017, 0, 0.102, 0)
+metadata/_edit_group_ = true
+
+[node name="elbowTwistSegmentMesh" type="MeshInstance3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowTwist"]
+transform = Transform3D(1, -6.66134e-16, 0, -2.22045e-16, 1, 0, 0, 0, 1, 0, 0.051, 0)
+mesh = SubResource("BoxMesh_wrh8p")
+skeleton = NodePath("../../../../../../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowTwist/elbowTwistSegmentMesh"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 0.03, -0.05)
+mesh = SubResource("BoxMesh_u6x5l")
+
+[node name="wrist bend" type="Marker3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowTwist"]
+transform = Transform3D(1, 0, 0, 0, 0.438371, -0.898794, 0, 0.898794, 0.438371, 0, 0.102, -2.38419e-07)
+metadata/_edit_group_ = true
+
+[node name="wristBendMesh" type="MeshInstance3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowTwist/wrist bend"]
+transform = Transform3D(1, 0, 0, -3.55271e-15, 1, 0, 8.88178e-16, 0, 1, 3.72529e-09, 0.0275, 2.38419e-07)
+mesh = SubResource("BoxMesh_6clp3")
+skeleton = NodePath("../../../../../../../..")
+
+[node name="degree5updir" type="MeshInstance3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowTwist/wrist bend/wristBendMesh"]
+transform = Transform3D(1, -1.63714e-08, 2.00915e-08, -2.90844e-09, -5.59355e-08, -1, -5.37717e-11, 1, -4.74648e-08, 7.45058e-09, 0.00999999, -0.05)
+mesh = SubResource("BoxMesh_awmhx")
+
+[node name="debugCube5" type="MeshInstance3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowTwist/wrist bend"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.45058e-09, 0.0300001, 0)
+visible = false
+mesh = SubResource("BoxMesh_4dmjp")
+
+[node name="wrist twist" type="Marker3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowTwist/wrist bend"]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0.055, 0)
+metadata/_edit_group_ = true
+
+[node name="endSegmentMesh" type="MeshInstance3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowTwist/wrist bend/wrist twist"]
+transform = Transform3D(1, -8.88178e-16, -8.88178e-16, -8.88178e-16, 1, 2.98023e-08, 8.88178e-16, -2.98023e-08, 1, 3.72529e-09, 0.02, 2.38419e-07)
+mesh = SubResource("BoxMesh_wfa5e")
+skeleton = NodePath("../../../../../../../../..")
+
+[node name="tip" type="MeshInstance3D" parent="baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowTwist/wrist bend/wrist twist/endSegmentMesh"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.08165e-12, 0.01, -0.05)
+mesh = SubResource("BoxMesh_u6x5l")
+
+[node name="ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ui"]
+layout_mode = 1
+offset_right = 277.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 60
+text = "score:"
+
+[node name="Marker2D" type="Marker2D" parent="ui"]
+position = Vector2(285, 323)
+
+[node name="segment1" type="ColorRect" parent="ui/Marker2D"]
+offset_top = -15.0
+offset_right = 254.0
+offset_bottom = 15.0
+rotation = -0.954695
+pivot_offset = Vector2(2.08165e-12, 15)
+
+[node name="segment2" type="ColorRect" parent="ui/Marker2D/segment1"]
+layout_mode = 0
+offset_left = 254.0
+offset_right = 458.0
+offset_bottom = 30.0
+rotation = 1.3182
+pivot_offset = Vector2(2.08165e-12, 15)
+color = Color(1, 0.215686, 1, 1)
+
+[node name="fifthDegreePos" type="ColorRect" parent="ui/Marker2D"]
+offset_left = 260.0
+offset_right = 300.0
+offset_bottom = 40.0
+pivot_offset = Vector2(20, 20)
+color = Color(1, 0.521569, 0.113725, 1)
+
+[node name="arduinoUpdateTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="serialCom" type="Node" parent="."]
+script = ExtResource("2_wesc8")
+
+[connection signal="timeout" from="arduinoUpdateTimer" to="." method="_on_arduino_update_timer_timeout"]

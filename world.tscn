@@ -1,0 +1,153 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2r1xtuscs5b5"]
+
+[ext_resource type="PackedScene" uid="uid://46gflptn4tv3" path="res://robot_arm.tscn" id="1_e2bcm"]
+[ext_resource type="PackedScene" uid="uid://dj1fw467yyk6f" path="res://targetPose.tscn" id="2_8va4n"]
+[ext_resource type="Script" path="res://AnimationPlayer.gd" id="2_xwpxw"]
+
+[sub_resource type="Animation" id="Animation_asfnq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.228552, 0.787372, 0.17073)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.27273, -0.639281, -0.308801)]
+}
+
+[sub_resource type="Animation" id="Animation_twabf"]
+resource_name = "new_animation"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.228552, 0.787372, 0.17073), Vector3(0.169016, 0.787372, 0.17073), Vector3(-0.089, 0.892, 0.171), Vector3(0.11813, 0.5, 0.537593)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.27273, -0.639281, -0.308801), Vector3(1.27273, -0.639281, -0.308801), Vector3(0.0857737, 0.958787, 0.293732), Vector3(1.03534, -0.319667, -0.188294)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mvlv2"]
+_data = {
+"RESET": SubResource("Animation_asfnq"),
+"new_animation": SubResource("Animation_twabf")
+}
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8n4vg"]
+
+[node name="world" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="robotArm" parent="." node_paths=PackedStringArray("targetPos") instance=ExtResource("1_e2bcm")]
+targetPos = NodePath("../Node3D")
+robotYaw = 280.0
+shoulderAngle = 306.0
+elbowAngle = 144.0
+elbowTwistAngle = 66.0
+wristAngle = 46.0
+wristTwistAngle = 346.0
+shouldIk = true
+
+[node name="debugCube2" parent="robotArm/baseBlock" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0653611, 0.548624, -0.318839)
+
+[node name="debugCube3" parent="robotArm/baseBlock" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.122698, 0.842398, -0.185793)
+
+[node name="debugCube4" parent="robotArm/baseBlock" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2239.48, 74494.6, -3689.15)
+
+[node name="bottomPivot" parent="robotArm/baseBlock" index="3"]
+transform = Transform3D(0.996177, 0, -0.087369, 0, 1, 0, 0.087369, 0, 0.996177, 2.08165e-12, 0.5, 2.08165e-12)
+
+[node name="shoulder" parent="robotArm/baseBlock/bottomPivot/baseShoulder" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.997773, 0.0667091, 0, -0.0667091, 0.997773, 2.08165e-12, 0.108, 2.08165e-12)
+
+[node name="elbow" parent="robotArm/baseBlock/bottomPivot/baseShoulder/shoulder" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.372788, -0.927914, 0, 0.927914, 0.372788, 2.08165e-12, 0.254, 2.08165e-12)
+
+[node name="debugCube" parent="robotArm/baseBlock/bottomPivot/baseShoulder/shoulder/elbow" index="0"]
+transform = Transform3D(1, 6.56488e-09, 2.25091e-08, -7.36514e-09, 1, 4.1967e-08, 1.1436e-09, -1.11161e-08, 1, -0.0542167, 0.03, -0.0439266)
+
+[node name="elbowTwist" parent="robotArm/baseBlock/bottomPivot/baseShoulder/shoulder/elbow" index="2"]
+transform = Transform3D(-0.972739, 0, 0.231899, 0, 1, 0, -0.231899, 0, -0.972739, 0, 0.102, 0)
+
+[node name="wrist bend" parent="robotArm/baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowTwist" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.783194, -0.621776, 0, 0.621776, 0.783194, 0, 0.102, -2.38419e-07)
+
+[node name="debugCube5" parent="robotArm/baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowTwist/wrist bend" index="1"]
+transform = Transform3D(1, -8.36853e-09, -1.06854e-08, -4.65593e-08, 1, 4.83489e-08, -8.42091e-09, -1.63126e-08, 1, -0.0126679, 0.0300002, 0.058649)
+
+[node name="wrist twist" parent="robotArm/baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowTwist/wrist bend" index="2"]
+transform = Transform3D(-0.797395, 0, -0.603457, 0, 1, 0, 0.603457, 0, -0.797395, 0, 0.055, 0)
+
+[node name="Label" parent="robotArm/ui" index="0"]
+text = "Score: 0.25499488040805"
+
+[node name="segment1" parent="robotArm/ui/Marker2D" index="0"]
+rotation = -1.63756
+
+[node name="segment2" parent="robotArm/ui/Marker2D/segment1" index="0"]
+rotation = 1.18878
+
+[node name="fifthDegreePos" parent="robotArm/ui/Marker2D" index="1"]
+offset_left = 252.392
+offset_top = 101.239
+offset_right = 292.393
+offset_bottom = 141.239
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Node3D")
+libraries = {
+"": SubResource("AnimationLibrary_mvlv2")
+}
+speed_scale = 0.5
+script = ExtResource("2_xwpxw")
+
+[node name="Node3D" parent="." instance=ExtResource("2_8va4n")]
+transform = Transform3D(0.937891, -0.299434, -0.17521, -0.0892518, 0.279781, -0.955905, 0.335251, 0.912174, 0.235679, -0.228552, 0.787372, 0.17073)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.386924, 0, 0, 0, -0.0190411, 0, 0, 0, 0.341817, -0.354651, 0.598452, 0.190825)
+mesh = SubResource("CapsuleMesh_8n4vg")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, -6.97574e-16, -1.5246e-23, -1.5246e-23, -4.37114e-08, 1, -6.97574e-16, -1, -4.37114e-08, 0, 2.41285, 0)
+
+[editable path="robotArm"]

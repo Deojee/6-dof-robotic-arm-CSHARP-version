@@ -116,6 +116,7 @@ func _process(delta):
 		$ui/Marker2D/segment1.rotation = IKCalc.targetRotations[1] - PI/2
 		$ui/Marker2D/segment1/segment2.rotation = IKCalc.targetRotations[2] #- PI/2
 		
+		print(IKCalc.targetRotations)
 		
 		pass
 	else:

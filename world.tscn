@@ -94,37 +94,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.122698, 0.842398, -0.18579
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2239.48, 74494.6, -3689.15)
 
 [node name="bottomPivot" parent="robotArm/baseBlock" index="3"]
-transform = Transform3D(0.996177, 0, -0.087369, 0, 1, 0, 0.087369, 0, 0.996177, 2.08165e-12, 0.5, 2.08165e-12)
+transform = Transform3D(0.674853, 0, -0.737953, 0, 1, 0, 0.737953, 0, 0.674853, 2.08165e-12, 0.5, 2.08165e-12)
 
 [node name="shoulder" parent="robotArm/baseBlock/bottomPivot/baseShoulder" index="1"]
-transform = Transform3D(1, 0, 0, 0, 0.997773, 0.0667091, 0, -0.0667091, 0.997773, 2.08165e-12, 0.108, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 0.738066, -0.674729, 0, 0.674729, 0.738066, 2.08165e-12, 0.108, 2.08165e-12)
 
 [node name="elbow" parent="robotArm/baseBlock/bottomPivot/baseShoulder/shoulder" index="1"]
-transform = Transform3D(1, 0, 0, 0, 0.372788, -0.927914, 0, 0.927914, 0.372788, 2.08165e-12, 0.254, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 0.665035, -0.746809, 0, 0.746809, 0.665035, 2.08165e-12, 0.254, 2.08165e-12)
 
 [node name="debugCube" parent="robotArm/baseBlock/bottomPivot/baseShoulder/shoulder/elbow" index="0"]
 transform = Transform3D(1, 6.56488e-09, 2.25091e-08, -7.36514e-09, 1, 4.1967e-08, 1.1436e-09, -1.11161e-08, 1, -0.0542167, 0.03, -0.0439266)
 
 [node name="elbowTwist" parent="robotArm/baseBlock/bottomPivot/baseShoulder/shoulder/elbow" index="2"]
-transform = Transform3D(-0.972739, 0, 0.231899, 0, 1, 0, -0.231899, 0, -0.972739, 0, 0.102, 0)
+transform = Transform3D(-0.176302, 0, -0.984335, 0, 1, 0, 0.984335, 0, -0.176302, 0, 0.102, 0)
 
 [node name="wrist bend" parent="robotArm/baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowTwist" index="1"]
-transform = Transform3D(1, 0, 0, 0, 0.783194, -0.621776, 0, 0.621776, 0.783194, 0, 0.102, -2.38419e-07)
+transform = Transform3D(1, 0, 0, 0, 0.287088, -0.957903, 0, 0.957903, 0.287088, 0, 0.102, -2.38419e-07)
 
 [node name="debugCube5" parent="robotArm/baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowTwist/wrist bend" index="1"]
 transform = Transform3D(1, -8.36853e-09, -1.06854e-08, -4.65593e-08, 1, 4.83489e-08, -8.42091e-09, -1.63126e-08, 1, -0.0126679, 0.0300002, 0.058649)
 
 [node name="wrist twist" parent="robotArm/baseBlock/bottomPivot/baseShoulder/shoulder/elbow/elbowTwist/wrist bend" index="2"]
-transform = Transform3D(-0.797395, 0, -0.603457, 0, 1, 0, 0.603457, 0, -0.797395, 0, 0.055, 0)
+transform = Transform3D(0.0680417, 0, 0.997682, 0, 1, 0, -0.997682, 0, 0.0680417, 0, 0.055, 0)
 
 [node name="Label" parent="robotArm/ui" index="0"]
 text = "Score: 0.25499488040805"
 
 [node name="segment1" parent="robotArm/ui/Marker2D" index="0"]
-rotation = -1.63756
+rotation = -0.8302
 
 [node name="segment2" parent="robotArm/ui/Marker2D/segment1" index="0"]
-rotation = 1.18878
+rotation = 0.843253
 
 [node name="fifthDegreePos" parent="robotArm/ui/Marker2D" index="1"]
 offset_left = 252.392

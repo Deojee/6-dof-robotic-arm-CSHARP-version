@@ -1,13 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj1fw467yyk6f"]
+[gd_scene load_steps=6 format=3 uid="uid://dj1fw467yyk6f"]
 
 [ext_resource type="Script" path="res://targetPose.gd" id="1_evvtu"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6v03j"]
-albedo_color = Color(0, 0.796078, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_6y6ya"]
-material = SubResource("StandardMaterial3D_6v03j")
-size = Vector3(0.04, 0.125, 0.04)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o74r1"]
 albedo_color = Color(1, 0, 0, 1)
@@ -16,26 +9,55 @@ albedo_color = Color(1, 0, 0, 1)
 material = SubResource("StandardMaterial3D_o74r1")
 size = Vector3(0.02, 0.1, 0.02)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58okx"]
-albedo_color = Color(1, 1, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6v03j"]
+albedo_color = Color(0, 0.796078, 0, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_e1ij6"]
-material = SubResource("StandardMaterial3D_58okx")
-size = Vector3(0.02, 0.02, 0.02)
+[sub_resource type="BoxMesh" id="BoxMesh_6y6ya"]
+material = SubResource("StandardMaterial3D_6v03j")
+size = Vector3(0.04, 0.125, 0.04)
 
 [node name="targetBlock" type="Node3D"]
 script = ExtResource("1_evvtu")
 
+[node name="targetPos" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 1.05879e-22, 9.35254e-23, -2.64697e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_uxo1v")
+skeleton = NodePath("../shoulderSegment")
+
 [node name="shoulderSegment" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41078e-09, 0.125, 2.35592e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41078e-09, -0.0529181, 0.0575105)
 mesh = SubResource("BoxMesh_6y6ya")
 skeleton = NodePath("../../../../../../../../..")
 
-[node name="targetPos" type="MeshInstance3D" parent="shoulderSegment"]
-transform = Transform3D(1, 1.05879e-22, 9.35254e-23, -2.64697e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.22045e-16, 0.048478, -0.05)
-mesh = SubResource("BoxMesh_uxo1v")
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="debugCube2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.00001, 6.14428e-08, -6.22984e-07, 2.07111e-07, 1.00001, -1.6572e-06, -3.59348e-07, 1.81324e-06, 1.00001, -1.41078e-09, 0.073478, -0.0499998)
-mesh = SubResource("BoxMesh_e1ij6")
-skeleton = NodePath("../bottomPivot")
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 470.0
+offset_right = 185.0
+offset_bottom = 493.0
+text = "movement speed"
+
+[node name="HSlider" type="HSlider" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = -95.0
+offset_right = 531.0
+offset_bottom = -66.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+focus_mode = 0
+min_value = 0.001
+max_value = 1.0
+step = 0.01
+value = 0.501

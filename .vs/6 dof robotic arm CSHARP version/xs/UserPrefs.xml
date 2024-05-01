@@ -1,30 +1,27 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/dannorling/6 dof robotic arm CSHARP version/serialCommunicator.cs" relfile="serialCommunicator.cs" line="102" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workbench ActiveDocument="serialCommunicator.cs">
     <Files>
-      <File FileName="serialCommunicator.cs" Line="76" Column="1" />
-      <File FileName="../csharptestproject/aTestScript.cs" Line="18" Column="4" />
-      <File FileName="aTestScript.cs" Line="40" Column="7" />
-      <File FileName="AnimationPlayer.cs" Line="9" Column="3" />
+      <File FileName="serialCommunicator.cs" Line="14" Column="48" />
+      <File FileName="../csharptestproject/aTestScript.cs" />
+      <File FileName="aTestScript.cs" />
+      <File FileName="AnimationPlayer.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="6 dof robotic arm CSHARP version" expanded="True">
-            <Node name="6 dof robotic arm CSHARP version" expanded="True">
+          <Node name="6 dof robotic arm CSHARP version" selected="True">
+            <Node name="6 dof robotic arm CSHARP version">
               <Node name="Dependencies" expanded="True" />
-              <Node name="serialCommunicator.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

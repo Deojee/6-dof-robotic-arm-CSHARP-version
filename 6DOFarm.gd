@@ -3,7 +3,7 @@ extends Node
 class_name sixDOFArm
 
 #all lengths are in mm. They are from one degree to another.
-var lengths = [108,254,102,102,55,40]
+var lengths = [200,254,55,150,145.0/2.0,145.0/2.0]
 
 # this default position is pointing forward and straight up
 var targetRotations = [0,0,0,0,0,0]

@@ -20,7 +20,7 @@ var serial
 
 @export var shouldIk = false
 
-var lengthsInMM: Array[int] = [108,254,102,102,55,40]
+var lengthsInMM: Array[int] = [200,254,55,150,145.0/2.0,145.0/2.0]
 
 var bottomPivot
 var baseShoulder
@@ -65,9 +65,12 @@ var frame = 0
 func _process(delta):
 	 # Access nodes using variables
 	
+	if Engine.is_editor_hint():
+		return
+	
 	frame += 1
 	
-	if Engine.is_editor_hint() == false and Input.is_action_pressed("ui_select") :
+	if Input.is_action_pressed("ui_select") :
 		var message = "<a"
 		
 		for number in IKCalc.targetRotations:
@@ -116,7 +119,7 @@ func _process(delta):
 		$ui/Marker2D/segment1.rotation = IKCalc.targetRotations[1] - PI/2
 		$ui/Marker2D/segment1/segment2.rotation = IKCalc.targetRotations[2] #- PI/2
 		
-		print(IKCalc.targetRotations)
+		#print(IKCalc.targetRotations)
 		
 		pass
 	else:

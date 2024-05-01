@@ -11,7 +11,7 @@ public partial class serialCommunicator : Node
     public override void _Ready()
     {
         serialPort = new SerialPort();
-        serialPort.PortName = "/dev/cu.usbmodem11101";
+        serialPort.PortName = "/dev/cu.usbmodem1101";
         serialPort.BaudRate = 38400;
 
         serialPort.WriteTimeout = 1000;

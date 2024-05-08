@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2r1xtuscs5b5"]
+[gd_scene load_steps=11 format=3 uid="uid://b2r1xtuscs5b5"]
 
 [ext_resource type="PackedScene" uid="uid://46gflptn4tv3" path="res://robot_arm.tscn" id="1_e2bcm"]
+[ext_resource type="Script" path="res://world.gd" id="1_mtjo7"]
 [ext_resource type="PackedScene" uid="uid://dj1fw467yyk6f" path="res://targetPose.tscn" id="2_8va4n"]
 [ext_resource type="Script" path="res://AnimationPlayer.gd" id="2_xwpxw"]
+[ext_resource type="PackedScene" uid="uid://djakm1uurt8u8" path="res://vr_controller.tscn" id="5_83iwv"]
 
 [sub_resource type="Animation" id="Animation_asfnq"]
 length = 0.001
@@ -68,13 +70,17 @@ _data = {
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8n4vg"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tnreb"]
+
 [node name="world" type="Node3D"]
+script = ExtResource("1_mtjo7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
 [node name="robotArm" parent="." node_paths=PackedStringArray("targetPos") instance=ExtResource("1_e2bcm")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -1.5, 0)
 targetPos = NodePath("../targetBlock")
 robotYaw = 280.0
 shoulderAngle = 306.0
@@ -154,5 +160,10 @@ current = true
 
 [node name="targetBlock" parent="." instance=ExtResource("2_8va4n")]
 transform = Transform3D(1, 0, 0, 0, -0.182184, -0.983264, 0, 0.983264, -0.182184, 2.08165e-12, 0.862115, 0.352679)
+
+[node name="VrController" parent="." instance=ExtResource("5_83iwv")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="VrController"]
+mesh = SubResource("CapsuleMesh_tnreb")
 
 [editable path="robotArm"]

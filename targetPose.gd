@@ -56,4 +56,7 @@ func _process(delta):
 	global_rotate(Vector3.UP,rotationVelocity.y * ROTMODIFIER * speed)
 	global_rotate(Vector3.FORWARD,rotationVelocity.z * ROTMODIFIER * speed)
 	
+	
+	global_transform = get_tree().get_first_node_in_group("target").global_transform
+	
 	pass

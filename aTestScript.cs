@@ -18,8 +18,8 @@ public partial class aTestScript : Node2D
 		GD.Print("hello");
 
 		serialPort = new SerialPort();
-		serialPort.PortName = "/dev/cu.usbmodem1101";
-		serialPort.BaudRate = 9600;
+		serialPort.PortName = "COM4";
+		serialPort.BaudRate = 38400;
 		serialPort.Open();
 
 	}

@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://46gflptn4tv3"]
 
-[ext_resource type="Script" path="res://robotArm.gd" id="1_rlr3u"]
-[ext_resource type="Script" path="res://serialCommunicator.cs" id="2_wesc8"]
+[ext_resource type="Script" uid="uid://bq3740r7fewi8" path="res://robotArm.gd" id="1_rlr3u"]
+[ext_resource type="Script" uid="uid://coqupnr32b3kv" path="res://serialCommunicator.cs" id="2_wesc8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vesne"]
 transparency = 1

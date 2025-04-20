@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://b2r1xtuscs5b5"]
 
 [ext_resource type="PackedScene" uid="uid://46gflptn4tv3" path="res://robot_arm.tscn" id="1_e2bcm"]
-[ext_resource type="Script" path="res://world.gd" id="1_mtjo7"]
+[ext_resource type="Script" uid="uid://5coqihmtghvc" path="res://world.gd" id="1_mtjo7"]
 [ext_resource type="PackedScene" uid="uid://dj1fw467yyk6f" path="res://targetPose.tscn" id="2_8va4n"]
-[ext_resource type="Script" path="res://AnimationPlayer.gd" id="2_xwpxw"]
+[ext_resource type="Script" uid="uid://b1yo0ge8c7hqo" path="res://AnimationPlayer.gd" id="2_xwpxw"]
 [ext_resource type="PackedScene" uid="uid://djakm1uurt8u8" path="res://vr_controller.tscn" id="5_83iwv"]
 
 [sub_resource type="Animation" id="Animation_asfnq"]
@@ -64,8 +64,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mvlv2"]
 _data = {
-"RESET": SubResource("Animation_asfnq"),
-"new_animation": SubResource("Animation_twabf")
+&"RESET": SubResource("Animation_asfnq"),
+&"new_animation": SubResource("Animation_twabf")
 }
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8n4vg"]
